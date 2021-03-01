@@ -33,7 +33,7 @@ Although many solutions has been developed for work with CSV files into VBA, inc
 Starting on the version 3 of the VBA CSV interface library, the design philosophy changes from speed to usefulness and power when working with "big" files through streams. Despite this, the library still been the faster CSV/TSV file parser in VBA.
 
 ## Usage
-Import whole CSV/TSV file into a VBA array
+Import whole CSV/TSV file into a VBA array:
 
 ```vb
 Dim CSVint As CSVinterface
@@ -50,7 +50,7 @@ CSVint.GuessDelimiters conf
 CSVint.ImportFromCSV(conf).DumpToArray Arr
 ```
 
-Sort CSV/TSV file's content and put it into a VBA array
+Sort CSV/TSV file's content and put it into a VBA array:
 
 ```vb
 Dim CSVint As CSVinterface
@@ -67,7 +67,7 @@ CSVint.GuessDelimiters conf
 CSVint.ImportFromCSV(conf).Sort(SortColumn:=1, Descending:=True).DumpToArray Arr
 ```
 
-Import a range of records from a CSV/TSV file into a VBA array
+Import a range of records from a CSV/TSV file into a VBA array:
 
 ```vb
 Dim CSVint As CSVinterface
@@ -86,7 +86,15 @@ CSVint.GuessDelimiters conf
 CSVint.ImportFromCSV(conf).DumpToArray Arr
 ```
 
-Set the delimiters characters pack used on guessing operations
+Access to the first field of the first record:
+
+```vb
+Dim field As Variant
+
+field = CSVint(0, 0)
+```
+
+Set the delimiters characters pack used on guessing operations:
 
 ```vb
 Dim conf As parserConfig
@@ -122,7 +130,7 @@ With conf
 End With
 ```
 
-Set the char to escape special fields
+Set the char to escape special fields:
 
 ```vb
 conf.escapeToken = EscapeTokens.DoubleQuotes
@@ -130,7 +138,7 @@ conf.escapeToken = EscapeTokens.Apostrophe
 conf.escapeToken = EscapeTokens.NullChar
 ```
 
-Set fields and records delimiters
+Set fields and records delimiters:
 
 ```vb
 conf.fieldsDelimiter = ";"
